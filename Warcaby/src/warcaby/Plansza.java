@@ -47,19 +47,19 @@ class Plansza
     
     public Plansza rysujPlansze( char [][] tablica )
     {
-        System.out.println( "  ABCDEFGH \n" + " ╔═════╗" );
+        System.out.println( "  12345678 \n" + " ==========" );
         for( int i = 0; i < tablica.length; i++ )
         {
-            System.out.print( i + 1 + "║" );
+            System.out.print( i + 1 + "|" );
             
             for( int j = 0; j < tablica.length; j++ )
             {
                 System.out.print( tablica[i][j] );
             }
             
-            System.out.print ( "║ \n" );
+            System.out.print ( "| \n" );
         }
-        System.out.println( " ╚═════╝" );
+        System.out.println( " ==========" );
         
         return this;
     }
