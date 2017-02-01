@@ -24,7 +24,7 @@ public class Gracz
         int pobraneX = pobierzWspolrzedne( 'x' ) - 1;   
         int pobraneY = pobierzWspolrzedne( 'y' ) - 1;
         
-        if( pobraneX > tablica.length || pobraneX < 0 || pobraneY > tablica.length && pobraneY < 0 ) // Sprawdza, czy gracz nie podał danych z poza zakresu planszy
+        if( pobraneX > tablica.length || pobraneX < 0 && pobraneY > tablica.length && pobraneY < 0 ) // Sprawdza, czy gracz nie podał danych z poza zakresu planszy
         {
             e.nieWybranoPiona( tablica, 0, 0 );
             wybierzPiona( tablica );
@@ -60,7 +60,7 @@ public class Gracz
         int pobraneX = pobierzWspolrzedne( 'x' ) - 1;   
         int pobraneY = pobierzWspolrzedne( 'y' ) - 1;
         
-        if( pobraneX > tablica.length || pobraneX < 0 || pobraneY > tablica.length && pobraneY < 0 ) // Sprawdza, czy użytkownik nie podał danych z poza zakresu planszy
+        if( pobraneX > tablica.length || pobraneX < 0 && pobraneY > tablica.length && pobraneY < 0 ) // Sprawdza, czy użytkownik nie podał danych z poza zakresu planszy
         {
             e.nieMoznaWykonacRuchu( tablica, 0, 0 );
             wybierzPiona( tablica );
@@ -104,7 +104,7 @@ public class Gracz
 
                                 tablica[pobraneX][pobraneY] = tablica[pionX][pionY];
                                 tablica[pionX][pionY] = temp;
-
+                                
                                 x = tablica.length; y = tablica.length; // koniec pętli
                             }
                         }

@@ -27,6 +27,7 @@ public class Menu
     {
         Plansza p = new Plansza();
         Gracz g = new Gracz();
+        NPC n = new NPC();
         
         p.wypelnijPlansze( this.plansza );        
         p.umiescPiony( this.plansza );
@@ -35,9 +36,10 @@ public class Menu
         {
             p.rysujPlansze( this.plansza );
             g.wybierzPiona( this.plansza );
+            n.wybierzPiona( this.plansza );   
         }
     }
-    
+        
     public Menu menu()
     {
         Scanner sc = new Scanner( System.in );
