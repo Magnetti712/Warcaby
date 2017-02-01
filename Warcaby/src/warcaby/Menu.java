@@ -18,35 +18,24 @@ public class Menu
                         + "================= \n"
                         + "| 1) Zagraj     | \n"
                         + "================= \n"
-                        + "| 2) Statystyki | \n"
-                        + "================= \n"
-                        + "| 3) Wyjśćie    | \n"
+                        + "| 2) Wyjście    | \n"
                         + "================= \n" );
         return this;
     }
     
-    public Menu opcja1()
+    public void opcja1()
     {
-        Plansza pl = new Plansza( this.plansza );
-        Gracz gr = new Gracz();
-                
-        pl.umiescPiony( this.plansza );
-        pl.rysujPlansze( this.plansza );
-        gr.wybierzPion( plansza );
+        Plansza p = new Plansza();
+        Gracz g = new Gracz();
         
-        return this;
-    }
-    
-    public Menu opcja2()
-    {
+        p.wypelnijPlansze( this.plansza );        
+        p.umiescPiony( this.plansza );
         
-        return this;
-    }
-    
-    public Menu opcja3( )
-    {
-        
-        return this;
+        while( true )
+        {
+            p.rysujPlansze( this.plansza );
+            g.wybierzPiona( this.plansza );
+        }
     }
     
     public Menu menu()
@@ -63,11 +52,7 @@ public class Menu
             break;
             
             case 2:
-                opcja2();
-            break;
-            
-            case 3:
-                opcja3();
+                System.exit(0);
             break;
             
             default:

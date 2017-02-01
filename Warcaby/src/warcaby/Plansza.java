@@ -1,65 +1,66 @@
 package warcaby;
 
-class Plansza 
-{   
-    Plansza( char [][] tablica ) // wypełnia tablice
+public class Plansza 
+{
+    public Plansza wypelnijPlansze( char [][] tablica ) // Uzupełnia tablice, która będzie planszą
     {
-        for( int i = 0; i < tablica.length; i++ )
+        for( int y = 0; y < tablica.length; y++ )
         {
-            for( int j = 0; j < tablica.length; j++ )
+            for( int x = 0; x < tablica.length; x++ )
             {
-                if( ( i % 2 ) == 0 )
+                if( ( x % 2 ) == 0 )
                 {
-                    if( ( j % 2 ) == 0  )
-                        tablica[i][j] = '-'; // Białe pole
+                    if( ( y % 2 ) == 0  )
+                        tablica[x][y] = '*'; // Białe pole
                     else
-                        tablica[i][j] = ' '; // Pole na które może zostać postawiony pionek
+                        tablica[x][y] = ' '; // Pole na które może zostać postawiony pionek
                 }
                 else
                 {
-                    if( ( j % 2 ) == 0  )
-                        tablica[i][j] = ' '; // Pole na które może zostać postawiony pionek
+                    if( ( y % 2 ) == 0  )
+                        tablica[x][y] = ' '; // Pole na które może zostać postawiony pionek
                     else
-                        tablica[i][j] = '-'; // Białe pole
-                }
-            }
-        }
-    }
-    
-    public Plansza umiescPiony( char [][] tablica )
-    {
-        for( int i = 0; i < tablica.length; i++ )
-        {
-            for( int j = 0; j < tablica.length; j++ )
-            {
-                if( ( i < 3 ) && tablica[i][j] == ' ' )
-                {
-                    tablica[i][j] = 'C'; // Umieszcza czarne piony
-                } 
-                else if ( ( i > 4 ) && tablica[i][j] == ' ' )
-                {
-                    tablica[i][j] = 'B'; // Umieszcza białe piony
+                        tablica[x][y] = '*'; // Białe pole
                 }
             }
         }
         return this;
     }
     
-    public Plansza rysujPlansze( char [][] tablica )
+    public Plansza umiescPiony( char [][] tablica )
     {
-        System.out.println( "  12345678 \n" + " ==========" );
-        for( int i = 0; i < tablica.length; i++ )
+        for( int y = 0; y < tablica.length; y++ )
         {
-            System.out.print( i + 1 + "|" );
-            
-            for( int j = 0; j < tablica.length; j++ )
+            for( int x = 0; x < tablica.length; x++ )
             {
-                System.out.print( tablica[i][j] );
+                if( ( y < 3 ) && tablica[x][y] == ' ' )
+                {
+                    tablica[x][y] = 'c'; // Umieszcza czarne piony
+                } 
+                else if ( ( y > 4 ) && tablica[x][y] == ' ' )
+                {
+                    tablica[x][y] = 'b'; // Umieszcza białe piony
+                }
             }
-            
-            System.out.print ( "| \n" );
         }
-        System.out.println( " ==========" );
+        return this;
+    }
+    
+    public Plansza rysujPlansze( char [][] tablica ) // Rysuje plansze
+    {
+        System.out.println("   12345678\n  ==========");
+        for( int y = 0; y < tablica.length; y++ )
+        {
+            System.out.print( ( y + 1 ) + " |" );
+           
+            for( int x = 0; x < tablica.length; x++ )
+            {
+                System.out.print( tablica[x][y] );
+            }
+           
+            System.out.println( "|");
+        }
+        System.out.println("  ==========");
         
         return this;
     }
